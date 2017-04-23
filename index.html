@@ -113,6 +113,22 @@
                     <li><a href="tel:+37254513000"><i class="fa fa-phone fa-3x sr-contact"></i></a>
                     </li>
                 </ul>
+                  <p>
+                      <script type="text/javascript"> 
+        $(function(){ 
+            // Github contributors list is auto provided by Github api. 
+            $.ajax({
+                url: 'https://api.github.com/repos/buildig/buildig.github.io/contributors?page=1&per_page=250',
+                dataType: 'jsonp',
+                success: function(data) {
+                    $.each(data.data, function(key, val) {
+                        $('#githubcontributors').append('<a href="' + val.html_url + '" target="_blank" title="' + val.login + '"><img src="' + val.avatar_url + '" width="55" height="55" class="img-rounded" style="margin:5px;"/></a>');
+                    });
+                }
+            });
+        });
+    </script>
+                  </p>
               </div>
             </div>
         </div>
